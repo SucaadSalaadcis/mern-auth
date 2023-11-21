@@ -3,6 +3,7 @@ import dotenv from 'dotenv';
 dotenv.config(); // initialize
 import mongoose from 'mongoose';
 import userRoutes from './routes/user.route.js'
+import authRoute from '../api/routes/auth.route.js'
 mongoose.connect(process.env.MONGO).then (()=>{
     console.log("Connected to MongoDB")
 }).catch((err)=>{
@@ -17,3 +18,4 @@ app.listen(3000, () => {
 
 
 app.use('/api/user',userRoutes);
+app.use('/api/auth',authRoute);
